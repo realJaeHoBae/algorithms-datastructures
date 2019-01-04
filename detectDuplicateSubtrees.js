@@ -1,5 +1,30 @@
 var findDuplicateSubtrees = function(root) {
-  console.log(root);
+  let subtrees = new Set();
+  let inOutput = new Set();
+  let output = [];
+  
+  postOrder(root);
+
+  return output;
+
+  function postOrder(node, running) {
+    if (!node) { return 'null'; }
+
+    let left = 'L' + postOrder(node.left);
+    let right = 'R' + postOrder(node.right);
+    
+    let subtree = `${node.value} (${left}) (${right})`;
+
+    if (subtrees.has(subtree)) {
+      if (!inOutput.has(subtree)) {
+        output.push(node);
+        inOutput.add(subtree);
+      }
+    } else {
+      subtrees.add(subtree);
+    }
+    return subtree;
+  }
 }
 
 
