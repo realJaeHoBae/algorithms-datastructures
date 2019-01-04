@@ -1,3 +1,3 @@
-var employeeFreeTime = function(schedule) {
+var commonExclusion = function(schedule) {
   
 };
