@@ -1,0 +1,30 @@
+/**
+ * @param {string} S
+ * @return {string}
+ */
+var reverseOnlyLetters = function(S) {
+  let left = 0, right = S.length - 1;
+  let array = S.split('');
+  while (left < right) {
+    while (array[left] === '-') {
+      left++;
+    }
+    
+    while (array[right] === '-') {
+      right--;
+    }
+    
+    swap(array, left, right);
+    
+    left++; right--;
+  }
+  
+  return array.join('')
+  
+  function swap(array, left, right) {
+    if (left >= right) { return; }
+    let temp = array[left];
+    array[left] = array[right];
+    array[right] = temp;
+  }
+};
